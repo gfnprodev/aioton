@@ -3,11 +3,12 @@ import asyncio
 import aioton
 
 
-ton = aioton.Aioton("api key")
+ton = aioton.Aioton("Example")
 
 
 async def main():
-    t = await ton.detect_address("address")
+
+    t = await ton.detect_address("Address")
     print(t)
 
 loop = asyncio.get_event_loop()
