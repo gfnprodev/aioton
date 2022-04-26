@@ -19,9 +19,7 @@ class Aioton:
             r = await client.get(self.url + f"getAddressInformation?address={address}", headers=self.__headers)
             r = r.json()
 
-            if not r['ok']:
-                raise Exception(str(r['error'] + " Code: " + str(r['code'])))
-            return r
+            return await self.__check_error(r)
 
     async def get_extended_address_info(self, address: str):
         async with httpx.AsyncClient() as client:
